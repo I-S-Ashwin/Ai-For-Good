@@ -125,15 +125,18 @@ h4 {
 
 /* Buttons - Capsule / Pill Shape */
 div.stButton>button {
-    background: #FFFFFF;
-    color: #000000;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    /* Dark Glass */
+    color: #FFFFFF;
+    /* White Text */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     padding: 10px 30px;
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    /* Wider spacing */
     transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
