@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+.DS_Store
+*.png
+*.jpg
+*.mp4
+!frontend/img/*.png
+!frontend/img/*.jpg

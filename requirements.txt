@@ -1,0 +1,11 @@
+snowflake-snowpark-python
+streamlit
+pandas
+numpy
+librosa
+streamlit-image-comparison
+pydantic
+matplotlib
+pytest
+fpdf
+requests

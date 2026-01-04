@@ -1,0 +1,213 @@
+/* SafeHaven AI - 'Nike-Impact' 3D Performance Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+:root {
+    --bg-core: #000000;
+    --bg-card: rgba(15, 15, 15, 0.9);
+    /* Almost solid, deep black */
+    --text-primary: #FFFFFF;
+    --text-secondary: #888888;
+    --accent-volt: #D0FF00;
+    /* The "Nike Volt" - High visibility */
+    --accent-crimson: #FF2E2E;
+    --border-subtle: #222222;
+}
+
+/* Base App Styling */
+.stApp {
+    background: transparent !important;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    perspective: 1000px;
+    /* Global 3D Perspective */
+}
+
+/* Removing Streamlit default backgrounds to let our video/frame show */
+div[data-testid="stAppViewContainer"],
+div[data-testid="stHeader"],
+div[data-testid="stToolbar"],
+section[data-testid="stSidebar"]>div {
+    background: transparent !important;
+}
+
+/* Sidebar styling - Frosted Glass specific */
+section[data-testid="stSidebar"] {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(15px);
+    border-right: 1px solid var(--border-subtle);
+}
+
+/* Typography - Aggressive & Bold */
+h1,
+h2,
+h3,
+h4,
+.kpi-label,
+.kpi-value,
+div[data-testid="stMarkdownContainer"] p {
+    color: var(--text-primary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Oswald', sans-serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* 3D Card Engine - The Core "Nike" Feel */
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+
+    /* 3D Props */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent-volt), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.glass-card:hover {
+    transform: perspective(1000px) translateY(-8px) rotateX(2deg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(208, 255, 0, 0.05);
+    border-color: #444;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+/* KPI Architecture - Big & Bold */
+.kpi-card {
+    border-left: 4px solid var(--accent-volt);
+    background: linear-gradient(135deg, rgba(25, 25, 25, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+}
+
+.kpi-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    /* Massive */
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 8px;
+    color: var(--text-primary);
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.kpi-label {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    color: var(--text-secondary);
+}
+
+/* Buttons - Capsule / Pill Shape */
+div.stButton>button {
+    background: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 30px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+div.stButton>button:hover {
+    background: var(--accent-volt);
+    color: #000000;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 30px var(--accent-volt);
+    /* Neon Glow */
+}
+
+div.stButton>button:active {
+    transform: translateY(1px);
+}
+
+/* Interactive Floor Plan Grid */
+.floor-plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+/* 3D Viewer Container */
+.viewer-3d-container {
+    border-radius: 12px;
+    border: 1px solid #333;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.viewer-3d-container:hover {
+    border-color: var(--accent-volt);
+}
+
+/* Badges */
+.status-badge {
+    padding: 6px 14px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.badge-safe {
+    background: var(--accent-volt);
+    color: black;
+}
+
+.badge-warning {
+    background: #FFAA00;
+    color: black;
+}
+
+.badge-critical {
+    background: var(--accent-crimson);
+    color: white;
+}
+
+/* Background Video/Frame Styling (Injected in App, but base styles here) */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    object-fit: cover;
+    filter: brightness(0.6) contrast(1.2) grayscale(0.2);
+    /* Cinematic Look */
+}
